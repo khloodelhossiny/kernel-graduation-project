@@ -1,4 +1,4 @@
-   #!/bin/bash
+#!/bin/bash
 
 # Bash Script to Analyze Network Traffic
 
@@ -14,7 +14,7 @@ analyze_traffic() {
 
     # Output analysis summary
     echo ""
-    echo -e "\e[33m----- Network Traffic Analysis Report -----\e[0m"
+    echo -e "\e[33m---------- Network Traffic Analysis Report ----------\e[0m"
     echo ""
     # Provide summary information based on your analysis
     # Hints: Total packets, protocols, top source, and destination IP addresses.
@@ -47,7 +47,8 @@ analyze_traffic() {
     tshark -r $pcap_file -T fields -e ip.dst | sort | uniq -c | sort -nr | awk '{print "   - " $2 ": " $1 " packets"}' | head -n 5
 
     echo ""
-    echo -e "\e[33m---------- End of Report ----------\e[0m"
+    echo -e "\e[33m---------- End of Report ---------- \e[0m"
+    
 }
 
 # Run the analysis function
