@@ -2,10 +2,19 @@
 
 # Bash Script to Analyze Network Traffic
 
-# Input: Path to the Wireshark pcap file
+input_pcap(){
 echo "Please enter the path to the Wireshark pcap file:"
-read pcap_file
-
+while true; do
+    
+    read pcap_file
+    if [ ! -f "$pcap_file" ]; then
+        echo "File doesn't exist. Please try again."
+    else
+        clear
+        break
+    fi
+done
+}
 # Function to extract information from the pcap file
 analyze_traffic() {
     # Use tshark or similar commands for packet analysis.
@@ -47,9 +56,13 @@ analyze_traffic() {
     tshark -r $pcap_file -T fields -e ip.dst | sort | uniq -c | sort -nr | awk '{print "   - " $2 ": " $1 " packets"}' | head -n 5
 
     echo ""
-    echo -e "\e[33m---------- End of Report ---------- \e[0m"
+    echo -e "\e[33m---------- End of Report ---------------------------- \e[0m"
     
 }
 
+#-------------------------------Main-------------------------------
+
+# Input: Path to the Wireshark pcap file
+input_pcap
 # Run the analysis function
 analyze_traffic
