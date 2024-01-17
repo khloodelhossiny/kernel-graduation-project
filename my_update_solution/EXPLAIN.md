@@ -1,9 +1,11 @@
-### Function: The user is allowed to attempt entering the pcap file three times
+### Function: The user is allowed to attempt entering the pcap file three times :
+      1. if the file not exist
+      2. if the file is not a valid pcap file
 
 ### If the number of IP addresses is less than 5, it will display only the count of those addresses
 
 
-My output:
+#### 🗒️ 🗒️ 🗒️ 🗒️My output:
 ```txt
 ------- Network Traffic Analysis Report for test2.pcap file ----------
 
